@@ -1,0 +1,16 @@
+{
+   "name": "assets",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "dev": "sass -w scss:css -s compressed --no-source-map",
+      "start": "sass scss:css -s compressed --no-source-map"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "sass": "^1.46.0"
+   }
+}
