@@ -1,5 +1,67 @@
 /*■■■■■■■■■■■■■■■■■■■■■■  */
-/*■■■■■■■■■■■■■■■■■■■■■■  */
-/*■■■■■■■■■■■■■■■■■■■■■■  */
-/*■■■■■■■■■■■■■■■■■■■■■■  */
+@use "../declarations/" as *;
+
+/*■■■■■■■■■■■■■■■■■■■■■■ Reset */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: ubuntu, sans-serif;
+}
+body {
+   background: #f2f2f2;
+}
+ul {
+   list-style: none;
+}
+a {
+   text-decoration: none;
+}
+input,
+button {
+   font-size: 1rem;
+   display: block;
+}
+
+/*■■■■■■■■■■■■■■■■■■■■■■ Navbar */
+header {
+   background: #444;
+   nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5px 0;
+   }
+   ul {
+      display: flex;
+      align-items: center;
+   }
+   .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-right: 10px;
+      user-select: none;
+      &:hover {
+         background: #000;
+      }
+   }
+   a {
+      display: block;
+      padding: 15px 15px;
+      color: #fff;
+      border-radius: 8px;
+      &:hover {
+         background: $blue-1;
+      }
+   }
+}
+
+/*■■■■■■■■■■■■■■■■■■■■■■ Structure */
+main {
+   max-width: 960px;
+   margin: 0 auto;
+   padding-top: 20px;
+}
 /*■■■■■■■■■■■■■■■■■■■■■■  */

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{% static 'css/main.css' %} " />
+      <title>{% block title %}{% endblock %} | CRM</title>
+   </head>
+   <body>
+      <header>
+         <nav>
+            <ul>
+               <li>
+                  <a href="{% url 'crm:home' %} " class="logo">CRM APP </a>
+               </li>
+               <li><a href="{% url 'crm:home' %} ">Home</a></li>
+               <li><a href="">Dashboard</a></li>
+               <li><a href="">Products</a></li>
+            </ul>
+            <ul>
+               <li><a href="">Login </a></li>
+               <li><a href="">Register</a></li>
+            </ul>
+         </nav>
+      </header>
+      <main>{% block main %} {% endblock %}</main>
+   </body>
+</html>
