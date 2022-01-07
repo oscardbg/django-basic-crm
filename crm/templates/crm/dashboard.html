@@ -1,0 +1,74 @@
+{%extends 'crm/base.html' %}
+<!-- . -->
+{% block title %}Dashboard{% endblock %}
+<!-- . -->
+{% block main %}
+<section class="status">
+   <div class="box">
+      <p class="head">Total Orders</p>
+      <p>25</p>
+   </div>
+   <div class="box">
+      <p class="head">Orders Delivered</p>
+      <p>31</p>
+   </div>
+   <div class="box">
+      <p class="head">Orders Pending</p>
+      <p>52</p>
+   </div>
+</section>
+<section class="dash">
+   <article>
+      <h3>Customers:</h3>
+      <div class="box">
+         <a href="" class="btnAdd">Create Customer</a>
+         <ul class="lst-cust">
+            <li>
+               <p>View</p>
+               <p>Customer</p>
+               <p>Orders</p>
+            </li>
+            <li>
+               <a href="" class="btnView">View</a>
+               <p>Customer</p>
+               <p>Orders</p>
+            </li>
+            <li>
+               <a href="" class="btnView">View</a>
+               <p>Customer</p>
+               <p>Orders</p>
+            </li>
+         </ul>
+      </div>
+   </article>
+   <article>
+      <h3>Last 5 Orders</h3>
+      <div class="box">
+         <a href="" class="btnAdd">Create Order</a>
+         <ul class="lst-ord">
+            <li>
+               <p>Product</p>
+               <p>Date Ordered</p>
+               <p>Status</p>
+               <p>Update</p>
+               <p>Remove</p>
+            </li>
+            <li>
+               <p>Product</p>
+               <p>Date Ordered</p>
+               <p>Status</p>
+               <a href="" class="btnUpd">Update</a>
+               <a href="" class="btnDel">Remove</a>
+            </li>
+            <li>
+               <p>Product</p>
+               <p>Date Ordered</p>
+               <p>Status</p>
+               <a href="" class="btnUpd">Update</a>
+               <a href="" class="btnDel">Remove</a>
+            </li>
+         </ul>
+      </div>
+   </article>
+</section>
+{% endblock %}

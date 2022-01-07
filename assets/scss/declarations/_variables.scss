@@ -1,7 +1,25 @@
 /*■■■■■■■■■■■■■■■■■■■■■■ Variables */
 $blue-1: #008aa6;
+$blue-2: #1d4ed8;
+$yellow-1: #eab308;
+$orange-1: #ea580c;
+
+$gray-10: rgba(#000, 0.1);
+$gray-20: rgba(#000, 0.2);
+$gray-40: rgba(#000, 0.4);
+$gray-60: rgba(#000, 0.6);
 
 /*■■■■■■■■■■■■■■■■■■■■■■  */
+@mixin btn($clr) {
+   border: 2px solid $clr;
+   color: $clr;
+   padding: 5px;
+   display: inline-block;
+   border-radius: 5px;
+   font-size: 0.8rem;
+   text-align: center;
+}
+
 /*■■■■■■■■■■■■■■■■■■■■■■  */
 /*■■■■■■■■■■■■■■■■■■■■■■  */
 /*■■■■■■■■■■■■■■■■■■■■■■  */

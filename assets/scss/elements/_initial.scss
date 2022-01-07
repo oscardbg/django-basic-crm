@@ -1,5 +1,97 @@
 /*■■■■■■■■■■■■■■■■■■■■■■  */
+@use "../declarations/" as *;
+
 /*■■■■■■■■■■■■■■■■■■■■■■  */
+/*■■■■■■■■■■■■■■■■■■■■■■  */
+.status {
+   text-align: center;
+   padding-bottom: 40px;
+   .box {
+      width: 200px;
+      border-radius: 0 0 8px 8px;
+      border: 2px solid rgba($blue-1, 0.4);
+      display: inline-block;
+      margin-right: 15px;
+      &:last-child {
+         margin-right: 0;
+      }
+   }
+   .head {
+      background: rgba($blue-1, 0.4);
+      font-weight: bold;
+      color: $blue-2;
+   }
+   p {
+      text-align: center;
+      padding: 15px;
+   }
+}
+
+/*■■■■■■■■■■■■■■■■■■■■■■ Dashboard */
+.dash {
+   display: grid;
+   grid-template-columns: 30% 70%;
+   grid-gap: 25px;
+   h3 {
+      font-weight: bold;
+      border-bottom: 1px solid $gray-20;
+      padding: 0 0 5px;
+      margin-bottom: 10px;
+   }
+   .box {
+      padding: 15px;
+      background: #fff;
+      box-shadow: 2px 2px 4px $gray-20;
+      border-radius: 8px;
+   }
+   .btnAdd {
+      display: block;
+      background: rgba($blue-2, 0.8);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 10px 0;
+      border-radius: 5px;
+      text-align: center;
+      &:hover {
+         background: $blue-2;
+      }
+   }
+   ul {
+      margin-top: 15px;
+      li {
+         display: grid;
+         align-items: center;
+         grid-gap: 15px;
+         padding: 5px 0;
+         border-bottom: 1px solid $gray-10;
+         &:first-child {
+            font-size: 0.8rem;
+            font-weight: bold;
+         }
+      }
+   }
+   .lst-cust {
+      li {
+         grid-template-columns: 1fr 2fr 1fr;
+      }
+   }
+   .lst-ord {
+      li {
+         grid-template-columns: 2fr 1fr 1fr 0.6fr 0.6fr;
+      }
+   }
+   .btnView {
+      @include btn($blue-1);
+   }
+   .btnUpd {
+      @include btn($yellow-1);
+   }
+   .btnDel {
+      @include btn($orange-1);
+   }
+}
+
 /*■■■■■■■■■■■■■■■■■■■■■■  */
 /*■■■■■■■■■■■■■■■■■■■■■■  */
 /*■■■■■■■■■■■■■■■■■■■■■■  */

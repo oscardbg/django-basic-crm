@@ -25,7 +25,7 @@ button {
 
 /*■■■■■■■■■■■■■■■■■■■■■■ Navbar */
 header {
-   background: #444;
+   background: #333;
    nav {
       display: flex;
       justify-content: space-between;
@@ -43,6 +43,7 @@ header {
       font-weight: bold;
       margin-right: 10px;
       user-select: none;
+      box-shadow: none;
       &:hover {
          background: #000;
       }
@@ -52,6 +53,9 @@ header {
       padding: 15px 15px;
       color: #fff;
       border-radius: 8px;
+      box-shadow: -2px 1px 2px rgba($blue-1, 0.4);
+      margin-right: 8px;
+      transition: 0.3s;
       &:hover {
          background: $blue-1;
       }
