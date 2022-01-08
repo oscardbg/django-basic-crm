@@ -28,16 +28,14 @@
                <p>Customer</p>
                <p>Orders</p>
             </li>
+            {% for customer in customers %}
             <li>
                <a href="" class="btnView">View</a>
-               <p>Customer</p>
-               <p>Orders</p>
+               <p>{{ customer.name }} </p>
+               <p>{{ customer.orders.all|length }} </p>
             </li>
-            <li>
-               <a href="" class="btnView">View</a>
-               <p>Customer</p>
-               <p>Orders</p>
-            </li>
+            {% endfor %}
+            
          </ul>
       </div>
    </article>
@@ -53,20 +51,15 @@
                <p>Update</p>
                <p>Remove</p>
             </li>
+            {% for order in orders %}
             <li>
-               <p>Product</p>
-               <p>Date Ordered</p>
-               <p>Status</p>
+               <p>{{ order.product.name }} </p>
+               <p>{{ order.date_create|date:'Y-M-d' }}</p>
+               <p>{{ order.status }} </p>
                <a href="" class="btnUpd">Update</a>
                <a href="" class="btnDel">Remove</a>
             </li>
-            <li>
-               <p>Product</p>
-               <p>Date Ordered</p>
-               <p>Status</p>
-               <a href="" class="btnUpd">Update</a>
-               <a href="" class="btnDel">Remove</a>
-            </li>
+            {% endfor %}
          </ul>
       </div>
    </article>
