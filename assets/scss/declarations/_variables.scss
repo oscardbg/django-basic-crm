@@ -9,7 +9,7 @@ $gray-20: rgba(#000, 0.2);
 $gray-40: rgba(#000, 0.4);
 $gray-60: rgba(#000, 0.6);
 
-/*■■■■■■■■■■■■■■■■■■■■■■  */
+/*■■■■■■■■■■■■■■■■■■■■■■ Elements */
 @mixin btn($clr) {
    border: 2px solid $clr;
    color: $clr;
@@ -18,6 +18,21 @@ $gray-60: rgba(#000, 0.6);
    border-radius: 5px;
    font-size: 0.8rem;
    text-align: center;
+}
+
+%box {
+   padding: 15px;
+   background: #fff;
+   box-shadow: 2px 2px 4px $gray-20;
+   border-radius: 8px;
+}
+
+%item {
+   display: grid;
+   align-items: center;
+   grid-gap: 15px;
+   padding: 5px 0;
+   border-bottom: 1px solid $gray-10;
 }
 
 /*■■■■■■■■■■■■■■■■■■■■■■  */

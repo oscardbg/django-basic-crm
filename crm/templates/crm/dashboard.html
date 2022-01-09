@@ -6,19 +6,19 @@
 <section class="status">
    <div class="box">
       <p class="head">Total Orders</p>
-      <p>25</p>
+      <p>{{ orders|length }}</p>
    </div>
    <div class="box">
       <p class="head">Orders Delivered</p>
-      <p>31</p>
+      <p>{{ delivOrd|length }}</p>
    </div>
    <div class="box">
       <p class="head">Orders Pending</p>
-      <p>52</p>
+      <p>{{ pendingOrd|length }}</p>
    </div>
 </section>
 <section class="dash">
-   <article>
+   <article class="table">
       <h3>Customers:</h3>
       <div class="box">
          <a href="" class="btnAdd">Create Customer</a>
@@ -31,15 +31,14 @@
             {% for customer in customers %}
             <li>
                <a href="" class="btnView">View</a>
-               <p>{{ customer.name }} </p>
-               <p>{{ customer.orders.all|length }} </p>
+               <p>{{ customer.name }}</p>
+               <p>{{ customer.orders.all|length }}</p>
             </li>
             {% endfor %}
-            
          </ul>
       </div>
    </article>
-   <article>
+   <article class="table">
       <h3>Last 5 Orders</h3>
       <div class="box">
          <a href="" class="btnAdd">Create Order</a>
@@ -53,9 +52,9 @@
             </li>
             {% for order in orders %}
             <li>
-               <p>{{ order.product.name }} </p>
+               <p>{{ order.product.name }}</p>
                <p>{{ order.date_create|date:'Y-M-d' }}</p>
-               <p>{{ order.status }} </p>
+               <p>{{ order.status }}</p>
                <a href="" class="btnUpd">Update</a>
                <a href="" class="btnDel">Remove</a>
             </li>

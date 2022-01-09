@@ -1,0 +1,25 @@
+{%extends 'crm/base.html' %}
+<!-- . -->
+{% block title %}Products{% endblock %}
+<!-- . -->
+{% block main %}
+<article class="table">
+   <h3>All Products:</h3>
+   <div class="box">
+      <ul class="lst-prod">
+         <li>
+            <p>Product</p>
+            <p>Category</p>
+            <p>Price</p>
+         </li>
+         {% for product in product_list %}
+         <li>
+            <p>{{ product.name }}</p>
+            <p>{{ product.price }}</p>
+            <p>{{ product.category }}</p>
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+</article>
+{% endblock %}
