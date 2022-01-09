@@ -30,7 +30,7 @@
             </li>
             {% for customer in customers %}
             <li>
-               <a href="" class="btnView">View</a>
+               <a href="{% url 'crm:customer' customer.id %}" class="btnView">View</a>
                <p>{{ customer.name }}</p>
                <p>{{ customer.orders.all|length }}</p>
             </li>

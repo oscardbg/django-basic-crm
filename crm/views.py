@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from crm.models import Customer, Order, Product
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 def home(request):
 	return render(request, 'crm/index.html')
@@ -21,3 +21,14 @@ def dashboard(request):
 
 class ProductListView(ListView):
 	model = Product
+
+def customer(request, pk):
+	customer = Customer.objects.get(id=pk)
+
+	context = {
+		'customer': customer
+	}
+	return render(request, 'crm/customer_detail.html', context)
+
+class CustomerDetailView(DetailView):
+	model = Customer

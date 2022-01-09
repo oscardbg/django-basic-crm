@@ -1,0 +1,48 @@
+{%extends 'crm/base.html' %}
+<!-- . -->
+{% block title %}Customer{% endblock %}
+<!-- . -->
+{% block main %}
+<section class="cards">
+   <article class="card card-1">
+      <h4>Customer</h4>
+      <a href="" class="btnU">Update Customer</a>
+      <a href="" class="btnD">Delete Customer</a>
+   </article>
+   <article class="card card-2">
+      <h4>Contact Information</h4>
+      <p><span> Name:</span> {{ customer.name }}</p>
+      <p><span> Email:</span> {{ customer.email }}</p>
+      <p><span> Phone:</span> {{ customer.phone }}</p>
+   </article>
+   <article class="card card-3">
+      <h4>Total Orders</h4>
+      <p>{{ customer.orders.all|length }}</p>
+   </article>
+</section>
+<article class="table">
+   <h3>{{ customer.name }}'s Products:</h3>
+   <div class="box">
+      <ul class="lst-cdet">
+         <li>
+            <p>Product</p>
+            <p>Category</p>
+            <p>Date ordered</p>
+            <p>Status</p>
+            <p>Update</p>
+            <p>Remove</p>
+         </li>
+         {% for order in customer.orders.all %}
+         <li>
+            <p>{{ order.product.name }}</p>
+            <p>{{ order.product.category }}</p>
+            <p>{{ order.date_create|date:'Y-M-d' }}</p>
+            <p>{{ order.status }}</p>
+            <a href="" class="btnUpd">Update</a>
+            <a href="" class="btnDel">Remove</a>
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+</article>
+{% endblock %}
