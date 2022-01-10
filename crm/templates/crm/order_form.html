@@ -1,0 +1,13 @@
+{%extends 'crm/base.html' %}
+<!-- . -->
+{% block title %}Order{% endblock %}
+<!-- . -->
+{% block main %}
+<form method='post' >
+	{% csrf_token %}
+	{% for field in form %}
+	{{field}}
+	{% endfor %}
+	<button type="submit">Create</button>
+</form>
+{% endblock %}

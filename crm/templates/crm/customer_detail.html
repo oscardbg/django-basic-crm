@@ -21,7 +21,7 @@
    </article>
 </section>
 <article class="table">
-   <h3>{{ customer.name }}'s Products:</h3>
+   <h3>{{ customer.name }}'s Orders:</h3>
    <div class="box">
       <ul class="lst-cdet">
          <li>
@@ -38,8 +38,8 @@
             <p>{{ order.product.category }}</p>
             <p>{{ order.date_create|date:'Y-M-d' }}</p>
             <p>{{ order.status }}</p>
-            <a href="" class="btnUpd">Update</a>
-            <a href="" class="btnDel">Remove</a>
+            <a href="{% url 'crm:upd_order' order.id %}" class="btnUpd">Update</a>
+            <a href="{% url 'crm:del_order' order.id %}" class="btnDel">Remove</a>
          </li>
          {% endfor %}
       </ul>
