@@ -6,6 +6,9 @@
 <section class="cards">
    <article class="card card-1">
       <h4>Customer</h4>
+      <a href="{% url 'crm:add_order' customer.id %}" class="btnU"
+         >Place New Order</a
+      >
       <a href="" class="btnU">Update Customer</a>
       <a href="" class="btnD">Delete Customer</a>
    </article>
@@ -38,8 +41,12 @@
             <p>{{ order.product.category }}</p>
             <p>{{ order.date_create|date:'Y-M-d' }}</p>
             <p>{{ order.status }}</p>
-            <a href="{% url 'crm:upd_order' order.id %}" class="btnUpd">Update</a>
-            <a href="{% url 'crm:del_order' order.id %}" class="btnDel">Remove</a>
+            <a href="{% url 'crm:upd_order' order.id %}" class="btnUpd"
+               >Update</a
+            >
+            <a href="{% url 'crm:del_order' order.id %}" class="btnDel"
+               >Remove</a
+            >
          </li>
          {% endfor %}
       </ul>

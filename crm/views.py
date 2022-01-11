@@ -1,6 +1,8 @@
-from django.shortcuts import redirect, render
-from crm.models import Customer, Order, Product
+from django.db.models import fields
 from django.views.generic import ListView, DetailView
+from crm.models import Customer, Order, Product
+from django.forms import inlineformset_factory
+from django.shortcuts import redirect, render
 from crm.forms import OrderForm
 
 def home(request):
@@ -31,17 +33,21 @@ def customer(request, pk):
 	}
 	return render(request, 'crm/customer_detail.html', context)
 
-def create_order(request):
-	form = OrderForm()
+def create_order(request, pk):
+	OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=8)
+
+	customer = Customer.objects.get(id=pk)
+	formset = OrderFormSet(queryset=Order.objects.none(), instance=customer)
+	#form = OrderForm(initial={'customer':customer})
 
 	if request.method == 'POST':
-		form = OrderForm(request.POST)
-		if form.is_valid():
-			form.save()
+		formset = OrderFormSet(request.POST, instance=customer)
+		if formset.is_valid():
+			formset.save()
 			return redirect('crm:dashboard')
 
 	context = {
-		'form': form
+		'formset': formset
 	}
 	return render(request, 'crm/order_form.html', context)
 

@@ -30,7 +30,9 @@
             </li>
             {% for customer in customers %}
             <li>
-               <a href="{% url 'crm:customer' customer.id %}" class="btnView">View</a>
+               <a href="{% url 'crm:customer' customer.id %}" class="btnView"
+                  >View</a
+               >
                <p>{{ customer.name }}</p>
                <p>{{ customer.orders.all|length }}</p>
             </li>
@@ -41,7 +43,7 @@
    <article class="table">
       <h3>Last 5 Orders</h3>
       <div class="box">
-         <a href="{% url 'crm:add_order' %}" class="btnAdd">Create Order</a>
+         <a href="" class="btnAdd">Create Order</a>
          <ul class="lst-ord">
             <li>
                <p>Product</p>
@@ -55,8 +57,12 @@
                <p>{{ order.product.name }}</p>
                <p>{{ order.date_create|date:'Y-M-d' }}</p>
                <p>{{ order.status }}</p>
-               <a href="{% url 'crm:upd_order' order.id %}" class="btnUpd">Update</a>
-               <a href="{% url 'crm:del_order' order.id %}" class="btnDel">Remove</a>
+               <a href="{% url 'crm:upd_order' order.id %}" class="btnUpd"
+                  >Update</a
+               >
+               <a href="{% url 'crm:del_order' order.id %}" class="btnDel"
+                  >Remove</a
+               >
             </li>
             {% endfor %}
          </ul>
