@@ -1,11 +1,11 @@
-{% extends 'crm/base.html' %}
+{% extends 'base.html' %}
 <!-- . -->
 {% block title %} Register {% endblock %}
 <!-- . -->
 {% block main %}
 <!-- . -->
 <div class="frm-box">
-   <h1>Access to your account</h1>
+   <h1>Create an account</h1>
    <form method="post">
       {% csrf_token %}
       <!-- . -->
@@ -13,16 +13,15 @@
       <!-- . -->
       {{ field.label }}
       <!-- . -->
-      {{ field}}
+      {{ field }}
       <!-- . -->
       {% endfor %}
-      <!-- . -->
-      <button type="submit">Login</button>
+      <button type="submit">Create</button>
    </form>
 </div>
 <div class="extra">
    <p>
-      Don't have an account yet. <a href="{% url 'crm:register' %}">Register</a>
+      Already have an account. <a href="{% url 'accounts:login' %}">Login</a>
    </p>
 </div>
 <!-- . -->

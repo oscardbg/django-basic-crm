@@ -22,10 +22,10 @@
             </ul>
             <ul>
                {% if user.is_authenticated %}
-               <li><a href="{% url 'crm:logout' %}">Logout</a></li>
+               <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
                {% else %}
-               <li><a href="{% url 'crm:login' %}">Login </a></li>
-               <li><a href="{% url 'crm:register' %}">Register</a></li>
+               <li><a href="{% url 'accounts:login' %}">Login </a></li>
+               <li><a href="{% url 'accounts:register' %}">Register</a></li>
                {% endif %}
             </ul>
          </nav>
