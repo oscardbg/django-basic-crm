@@ -37,18 +37,7 @@
    grid-template-columns: 30% 70%;
    grid-gap: 25px;
    .btnAdd {
-      display: block;
-      background: rgba($blue-2, 0.8);
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: bold;
-      padding: 10px 0;
-      border-radius: 5px;
-      text-align: center;
-      margin-bottom: 15px;
-      &:hover {
-         background: $blue-2;
-      }
+      @extend %btn-add;
    }
 }
 

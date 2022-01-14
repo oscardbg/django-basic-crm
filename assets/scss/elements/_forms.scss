@@ -1,0 +1,53 @@
+/*■■■■■■■■■■■■■■■■■■■■■■  */
+@use "../declarations/" as *;
+
+/*■■■■■■■■■■■■■■■■■■■■■■ Form Box */
+.frm-box {
+   max-width: 350px;
+   background: #fff;
+   border-radius: 0 0 8px 8px;
+   box-shadow: 2px 2px 4px rgba(#000, 0.2);
+   margin: 0 auto;
+   h1 {
+      text-align: center;
+      background: $blue-1;
+      font-size: 1.4rem;
+      color: #fff;
+      padding: 15px 0;
+   }
+   form {
+      padding: 15px;
+   }
+   input {
+      border: 1px solid rgba($blue-2, 0.2);
+      font-size: 0.9rem;
+      padding: 5px;
+      margin: 5px 0 15px;
+      width: 100%;
+   }
+   button {
+      width: 100%;
+      margin-top: 15px;
+      @extend %btn-add;
+      cursor: pointer;
+   }
+}
+.extra {
+   background: #fff;
+   max-width: 350px;
+   margin: 20px auto 0;
+   padding: 15px;
+   font-size: 0.8rem;
+   text-align: center;
+   a {
+      color: $blue-2;
+      &:hover {
+         font-weight: bold;
+      }
+   }
+}
+
+/*■■■■■■■■■■■■■■■■■■■■■■  */
+/*■■■■■■■■■■■■■■■■■■■■■■  */
+/*■■■■■■■■■■■■■■■■■■■■■■  */
+/*■■■■■■■■■■■■■■■■■■■■■■  */

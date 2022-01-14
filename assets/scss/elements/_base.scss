@@ -62,6 +62,19 @@ header {
    }
 }
 
+/*■■■■■■■■■■■■■■■■■■■■■■ Messages */
+.msgs {
+   max-width: 960px;
+   background: #fff;
+   font-size: 0.8rem;
+   text-align: center;
+   color: #444;
+   margin: 15px auto 0;
+   p {
+      padding: 5px;
+   }
+}
+
 /*■■■■■■■■■■■■■■■■■■■■■■ Structure */
 main {
    max-width: 960px;

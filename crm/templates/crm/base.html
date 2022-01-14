@@ -5,6 +5,7 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" href="{% static 'favicon.ico' %}" />
       <link rel="stylesheet" href="{% static 'css/main.css' %} " />
       <title>{% block title %}{% endblock %} | CRM</title>
    </head>
@@ -20,11 +21,20 @@
                <li><a href="{% url 'crm:products' %} ">Products</a></li>
             </ul>
             <ul>
-               <li><a href="">Login </a></li>
-               <li><a href="">Register</a></li>
+               {% if user.is_authenticated %}
+               <li><a href="{% url 'crm:logout' %}">Logout</a></li>
+               {% else %}
+               <li><a href="{% url 'crm:login' %}">Login </a></li>
+               <li><a href="{% url 'crm:register' %}">Register</a></li>
+               {% endif %}
             </ul>
          </nav>
       </header>
+      <div class="msgs">
+         {% for msg in messages %}
+         <p>{{msg}}</p>
+         {% endfor %}
+      </div>
       <main>{% block main %} {% endblock %}</main>
    </body>
 </html>
