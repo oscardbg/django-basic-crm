@@ -1,9 +1,11 @@
 from django.contrib.auth.forms import AuthenticationForm
+from accounts.decorators import unauthenticated_user
 from django.contrib.auth import login, logout
+from django.shortcuts import render, redirect
 from accounts.forms import CreateUserForm
 from django.contrib import messages
-from django.shortcuts import render, redirect
 
+@unauthenticated_user
 def register_page(request):
 	form = CreateUserForm()
 
@@ -20,6 +22,7 @@ def register_page(request):
 	}
 	return render(request, 'accounts/register.html', context)
 
+@unauthenticated_user
 def login_page(request):
 	form = AuthenticationForm()
 	
@@ -30,6 +33,8 @@ def login_page(request):
 			login(request, user)
 			messages.success(request, f'Welcome again {user} ')
 			return redirect('crm:dashboard')
+		else:
+			messages.warning(request, 'Username or password incorrect')
 	
 	context = {
 		'form': form
@@ -38,4 +43,5 @@ def login_page(request):
 
 def logout_page(request):
 	logout(request)
+	messages.info(request, 'You have been logged out')
 	return redirect('accounts:login')

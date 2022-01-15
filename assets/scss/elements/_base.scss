@@ -60,6 +60,11 @@ header {
          background: $blue-1;
       }
    }
+   .no-a {
+      pointer-events: none;
+      text-transform: uppercase;
+      font-weight: bold;
+   }
 }
 
 /*■■■■■■■■■■■■■■■■■■■■■■ Messages */
@@ -79,6 +84,6 @@ header {
 main {
    max-width: 960px;
    margin: 0 auto;
-   padding-top: 20px;
+   padding: 20px 0 40px;
 }
 /*■■■■■■■■■■■■■■■■■■■■■■  */
