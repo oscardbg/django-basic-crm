@@ -2,8 +2,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from accounts.decorators import unauthenticated_user
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import Group
 from accounts.forms import CreateUserForm
 from django.contrib import messages
+from crm.models import Customer
 
 @unauthenticated_user
 def register_page(request):
@@ -12,8 +14,13 @@ def register_page(request):
 	if request.method == 'POST':
 		form = CreateUserForm(request.POST)
 		if form.is_valid():
-			form.save()
-			user = form.cleaned_data.get('username')
+			user = form.save()
+			username = form.cleaned_data.get('username')
+			
+			group = Group.objects.get(name='customer')
+			user.groups.add(group)
+			Customer.objects.create(user=user, name=user.username)
+			
 			messages.success(request, f'Account created. New user: {user} ')
 			return redirect('crm:dashboard')
 

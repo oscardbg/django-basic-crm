@@ -10,7 +10,7 @@ def unauthenticated_user(view_funct):
 	
 	return wrapper_func
 
-def allowerd_users(allowed_roles=[]):
+def allowed_users(allowed_roles=[]):
 	def decorator(view_funct):
 		def wrapper_funct(request, *args, **kwargs):
 			group = None
@@ -32,7 +32,7 @@ def admin_only(view_func):
 			group = request.user.groups.all()[0].name
 
 		if group == 'customer':
-			return redirect('user-page')
+			return redirect('crm:userpage')
 
 		if group == 'admin':
 			return view_func(request, *args, **kwargs)
