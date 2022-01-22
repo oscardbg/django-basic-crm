@@ -21,8 +21,10 @@ def register_page(request):
 			user.groups.add(group)
 			Customer.objects.create(user=user, name=user.username)
 			
-			messages.success(request, f'Account created. New user: {user} ')
+			messages.success(request, f'Account created. New user: {username} ')
 			return redirect('crm:dashboard')
+		else:
+			print('Some error')
 
 	context = {
 		'form': form

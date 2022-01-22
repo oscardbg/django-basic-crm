@@ -4,8 +4,8 @@ from django.views.generic import ListView, DetailView
 from crm.models import Customer, Order, Product
 from django.forms import inlineformset_factory
 from django.shortcuts import redirect, render
+from crm.forms import OrderForm, CustomerForm
 from django.contrib import messages
-from crm.forms import OrderForm
 
 def home(request):
 	return render(request, 'crm/index.html')
@@ -29,9 +29,37 @@ def dashboard(request):
 class ProductListView(ListView):
 	model = Product
 
+@login_required(login_url='accounts:login')
 @allowed_users(allowed_roles=['customer'])
 def user_page(request):
-	return render(request, 'crm/user_page.html')
+	customer = request.user.customer
+	pendingOrd = Order.objects.filter(status='Pending')
+	delivOrd = Order.objects.filter(status='Delivered')
+
+	context = {
+		'customer': customer,
+		'pendingOrd': pendingOrd,
+		'delivOrd': delivOrd
+	}
+	return render(request, 'crm/user_page.html', context)
+
+@login_required(login_url='accounts:login')
+@allowed_users(allowed_roles=['customer'])
+def account_settings(request):
+	custmr = request.user.customer
+	form = CustomerForm(instance=custmr)
+
+	if request.method == 'POST':
+		form = CustomerForm(request.POST, request.FILES, instance=custmr)
+		if form.is_valid():
+			form.save()
+		else:
+			messages.warning(request, 'Some field data is incorrect')
+
+	context = {
+		'form': form
+	}
+	return render(request, 'crm/user_settings.html', context)
 
 @login_required(login_url='accounts:login')
 @allowed_users(allowed_roles=['admin'])

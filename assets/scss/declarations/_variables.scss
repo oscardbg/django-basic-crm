@@ -36,6 +36,20 @@ $gray-60: rgba(#000, 0.6);
    }
 }
 
+%txtInput {
+   border: 1px solid rgba($blue-2, 0.2);
+   font-size: 0.9rem;
+   padding: 5px;
+   margin: 5px 0 15px;
+   width: 100%;
+}
+%frmBtn {
+   width: 100%;
+   margin-top: 15px;
+   @extend %btn-add;
+   cursor: pointer;
+}
+
 %box {
    padding: 15px;
    background: #fff;
